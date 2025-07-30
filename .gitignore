@@ -1,14 +1,6 @@
+local/
 __pycache__/
 venv/
 node_modules/
-data/
-train/
-images/
-calibration/
-*.jpg
-*.png
-*.jpeg
-*.mp4
-*.yaml
-*.json
-*.txt
+dist/
+package-lock.json
