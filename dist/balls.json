@@ -1,0 +1,114 @@
+{
+    "11": {
+        "x": "744.00",
+        "y": "468.83",
+        "color": "red",
+        "type": "stripe",
+        "intensity": 609,
+        "label": 11
+    },
+    "15": {
+        "x": "1347.95",
+        "y": "386.50",
+        "color": "maroon",
+        "type": "stripe",
+        "intensity": 493,
+        "label": 15
+    },
+    "0": {
+        "x": "1317.50",
+        "y": "737.83",
+        "color": "white",
+        "type": "solid",
+        "intensity": 19,
+        "label": 0
+    },
+    "9": {
+        "x": "560.19",
+        "y": "274.44",
+        "color": "yellow",
+        "type": "stripe",
+        "intensity": 445,
+        "label": 9
+    },
+    "3": {
+        "x": "1089.50",
+        "y": "186.56",
+        "color": "red",
+        "type": "solid",
+        "intensity": 1299,
+        "label": 3
+    },
+    "13": {
+        "x": "746.06",
+        "y": "31.88",
+        "color": "orange",
+        "type": "stripe",
+        "intensity": 130,
+        "label": 13
+    },
+    "8": {
+        "x": "1174.75",
+        "y": "433.75",
+        "color": "black",
+        "type": "solid",
+        "intensity": 2260,
+        "label": 8
+    },
+    "2": {
+        "x": "1221.75",
+        "y": "704.00",
+        "color": "blue",
+        "type": "solid",
+        "intensity": 1622,
+        "label": 2
+    },
+    "1": {
+        "x": "1262.12",
+        "y": "537.88",
+        "color": "yellow",
+        "type": "solid",
+        "intensity": 1139,
+        "label": 1
+    },
+    "12": {
+        "x": "880.50",
+        "y": "437.28",
+        "color": "purple",
+        "type": "stripe",
+        "intensity": 674,
+        "label": 12
+    },
+    "4": {
+        "x": "1389.19",
+        "y": "473.50",
+        "color": "purple",
+        "type": "solid",
+        "intensity": 2080,
+        "label": 4
+    },
+    "14": {
+        "x": "687.19",
+        "y": "273.50",
+        "color": "green",
+        "type": "stripe",
+        "intensity": 773,
+        "label": 14
+    },
+    "5": {
+        "x": "1493.50",
+        "y": "747.67",
+        "color": "orange",
+        "type": "solid",
+        "intensity": 680,
+        "label": 5
+    },
+    "7": {
+        "x": "405.10",
+        "y": "423.30",
+        "color": "maroon",
+        "type": "solid",
+        "intensity": 1377,
+        "label": 7
+    }
+}

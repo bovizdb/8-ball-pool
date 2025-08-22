@@ -52,38 +52,6 @@ loader.load('/table.glb', function (glb) {
     
 });
 
-
-// fetch('http://127.0.0.1:8080/coordinates.txt')
-//     .then(response => response.text())
-//     .then(data => {
-//         console.log(data);
-//         let lines = data.split('\n');
-//         for (let i = 0; i < lines.length; i++) {
-//             let coords = lines[i].split(' ');
-//             if (coords.length === 2) {
-//                 let x = parseFloat((coords[0]/1320)*3.6);
-//                 let y = parseFloat((coords[1]/640)*1.6);
-//                 console.log(x, y);
-//                 loader.load('/'+ Math.round(Math.random()*15) +'.glb', function (glb) {
-//                 let ball = glb.scene;
-//                 ball.position.set(x, 1.00, y);
-//                 ball.scale.set(0.0525, 0.0525, 0.0525);
-//                 let rotx = Math.random()*Math.PI*2;
-//                 let roty = Math.random()*Math.PI*2;
-//                 let rotz = Math.random()*Math.PI*2;
-//                 ball.rotation.set(rotx, roty, rotz);
-//                 scene.add(ball);
-//                 balls.push(ball);
-//                 }, undefined, function (error) {
-//                     console.error(error);
-//                 });
-//             }
-//         }
-//     })
-//     .catch(err => console.error("Fetch error:", err));
-
-// console.log(balls)
-
 let balls = {};
 
 fetch('balls.json')
@@ -106,15 +74,6 @@ fetch('balls.json')
             }, undefined, function (error) {
                 console.error(error);
             });
-
-
-            // const ball = new THREE.Mesh(
-            //     new THREE.SphereGeometry(0.0525, 32, 32),
-            //     new THREE.MeshStandardMaterial({ color: item.color })
-            // );
-            // ball.position.set(item.x/1000, 1, item.y/1000);
-            // scene.add(ball);
-            // return ball;
         });
         console.log(balls);
     })
@@ -130,9 +89,6 @@ fetch('cue.txt')
         cueRotation = parseFloat(data);
     })
     .catch(err => console.error("Fetch error:", err));
-
-await new Promise(resolve => setTimeout(resolve, 1000));
-console.log(cueRotation);
 
 // for (let i = 0; i < 16; i++) {
 //     loader.load('/'+i+'.glb', function (glb) {
