@@ -6,5 +6,6 @@
   },
   "devDependencies": {
     "vite": "^5.4.19"
-  }
+  },
+  "deploy": "gh-pages -d ./dist"
 }
