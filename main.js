@@ -40,7 +40,7 @@ const loader = new GLTFLoader();
 
 let table;
 
-loader.load('/table.glb', function (glb) {
+loader.load('table.glb', function (glb) {
     
     table = glb.scene;
     table.position.set(0, 0, 0);
