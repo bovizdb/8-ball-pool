@@ -1,114 +1,106 @@
 {
-    "0": {
-        "x": "953.30",
-        "y": "564.30",
-        "color": "white",
-        "type": "solid",
-        "intensity": 3,
-        "label": 0
-    },
-    "9": {
-        "x": "545.71",
-        "y": "277.57",
-        "color": "yellow",
-        "type": "stripe",
-        "intensity": 500,
-        "label": 9
-    },
-    "3": {
-        "x": "1071.59",
-        "y": "186.14",
-        "color": "red",
-        "type": "solid",
-        "intensity": 1317,
-        "label": 3
-    },
-    "1": {
-        "x": "1171.61",
-        "y": "546.83",
-        "color": "yellow",
-        "type": "solid",
-        "intensity": 1339,
-        "label": 1
-    },
-    "8": {
-        "x": "1162.17",
-        "y": "435.72",
-        "color": "black",
-        "type": "solid",
-        "intensity": 2377,
-        "label": 8
-    },
-    "11": {
-        "x": "733.42",
-        "y": "471.67",
-        "color": "red",
-        "type": "stripe",
-        "intensity": 642,
-        "label": 11
-    },
-    "2": {
-        "x": "1213.00",
-        "y": "703.50",
-        "color": "blue",
-        "type": "solid",
-        "intensity": 1551,
-        "label": 2
-    },
-    "13": {
-        "x": "723.57",
-        "y": "32.10",
-        "color": "orange",
-        "type": "stripe",
-        "intensity": 197,
-        "label": 13
-    },
     "14": {
-        "x": "673.36",
-        "y": "277.21",
+        "x": "682.90",
+        "y": "267.00",
         "color": "green",
         "type": "stripe",
-        "intensity": 872,
+        "intensity": 629,
         "label": 14
     },
-    "5": {
-        "x": "1356.17",
-        "y": "699.83",
-        "color": "orange",
+    "8": {
+        "x": "1173.17",
+        "y": "428.50",
+        "color": "black",
         "type": "solid",
-        "intensity": 1179,
-        "label": 5
-    },
-    "4": {
-        "x": "1377.00",
-        "y": "474.83",
-        "color": "purple",
-        "type": "solid",
-        "intensity": 2065,
-        "label": 4
-    },
-    "12": {
-        "x": "866.75",
-        "y": "437.25",
-        "color": "purple",
-        "type": "stripe",
-        "intensity": 620,
-        "label": 12
+        "intensity": 2352,
+        "label": 8
     },
     "15": {
-        "x": "1334.83",
-        "y": "386.83",
+        "x": "1344.00",
+        "y": "381.25",
         "color": "maroon",
         "type": "stripe",
-        "intensity": 497,
+        "intensity": 443,
         "label": 15
     },
+    "3": {
+        "x": "1084.21",
+        "y": "177.21",
+        "color": "red",
+        "type": "solid",
+        "intensity": 1357,
+        "label": 3
+    },
+    "9": {
+        "x": "555.95",
+        "y": "269.77",
+        "color": "yellow",
+        "type": "stripe",
+        "intensity": 474,
+        "label": 9
+    },
+    "0": {
+        "x": "1134.64",
+        "y": "531.79",
+        "color": "white",
+        "type": "solid",
+        "intensity": 0,
+        "label": 0
+    },
+    "4": {
+        "x": "1385.50",
+        "y": "468.30",
+        "color": "purple",
+        "type": "solid",
+        "intensity": 2068,
+        "label": 4
+    },
+    "11": {
+        "x": "740.21",
+        "y": "465.50",
+        "color": "red",
+        "type": "stripe",
+        "intensity": 624,
+        "label": 11
+    },
+    "1": {
+        "x": "1258.80",
+        "y": "534.00",
+        "color": "yellow",
+        "type": "solid",
+        "intensity": 1117,
+        "label": 1
+    },
     "7": {
-        "x": "397.83",
-        "y": "426.17",
+        "x": "401.83",
+        "y": "419.17",
         "color": "maroon",
         "type": "solid",
-        "intensity": 1343,
+        "intensity": 1383,
         "label": 7
+    },
+    "12": {
+        "x": "876.50",
+        "y": "431.07",
+        "color": "purple",
+        "type": "stripe",
+        "intensity": 779,
+        "label": 12
+    },
+    "5": {
+        "x": "1361.83",
+        "y": "697.17",
+        "color": "orange",
+        "type": "solid",
+        "intensity": 1092,
+        "label": 5
+    },
+    "2": {
+        "x": "1220.00",
+        "y": "702.00",
+        "color": "blue",
+        "type": "solid",
+        "intensity": 1573,
+        "label": 2
     }
 }

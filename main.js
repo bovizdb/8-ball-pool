@@ -13,7 +13,7 @@ camera.rotation.x = -Math.PI/2;
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(window.devicePixelRatio * 2);
+renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 
@@ -53,17 +53,28 @@ loader.load('table.glb', function (glb) {
 });
 
 let balls = {};
+const colors = {
+    "yellow": 0xFFFF00,
+    "blue": 0x064CA8,
+    "red": 0xFF071A,
+    "purple": 0x5E3C9C,
+    "orange": 0xFFA903,
+    "green": 0x09BD58,
+    "maroon": 0xD33329,
+    "black": 0x000000
+}
 
-fetch('balls.json')
-    .then(response => response.json())
-    .then(data => {
-        balls = data;
-        Object.values(data).forEach(item => {
-            loader.load(item.label+'.glb', function (glb) {
+function fetchBalls() {
+    fetch('balls.json')
+        .then(response => response.json())
+        .then(data => {
+            balls = data;
+            Object.values(balls).forEach(item => {
+                loader.load(item.label+'.glb', function (glb) {
+                item.x = 2*item.x/1000-1.88;
+                item.y = 2*item.y/1000-0.91;
                 let ball = glb.scene;
-                let posx = 2*item.x/1000-1.88;
-                let posz = 2*item.y/1000-0.91;
-                ball.position.set(posx, 1.00, posz);
+                ball.position.set(item.x, 1.00, item.y);
                 ball.scale.set(0.0525, 0.0525, 0.0525);
                 let rotx = Math.random()*Math.PI*2;
                 let roty = Math.random()*Math.PI*2;
@@ -78,15 +89,19 @@ fetch('balls.json')
         console.log(balls);
     })
     .catch(err => console.error("Fetch error:", err));
+    return new Promise(resolve => setTimeout(resolve, 500));
+}
 
 console.log(balls);
 
-let cueRotation = 0;
+let cueRotation, cueX, cueY;
 
 fetch('cue.txt')
     .then(response => response.text())
     .then(data => {
-        cueRotation = parseFloat(data);
+        [cueRotation, cueX, cueY] = data.split(' ').map(parseFloat);
+        cueX = 2*cueX/1000-1.88;
+        cueY = 2*cueY/1000-0.91;
     })
     .catch(err => console.error("Fetch error:", err));
 
@@ -109,24 +124,21 @@ fetch('cue.txt')
 //     });
 
 // }
+function loadCue() {
+    loader.load('cue.glb', function (glb) {
+        let cue = glb.scene;
+        cue.position.set(balls[0].x, 1, balls[0].y);
+        cue.rotation.set(1.7, 0, 0);
+        cue.rotateOnWorldAxis(yAxis, Math.PI-cueRotation);
+        scene.add(cue);
 
-loader.load('cue.glb', function (glb) {
-    let cue = glb.scene;
-    let posx = 2*balls[0].x/1000-1.88;
-    let posz = 2*balls[0].y/1000-0.91;
-    cue.position.set(posx, 1, posz);
-    cue.rotation.set(1.7, 0, 0);
-    cue.rotateOnWorldAxis(yAxis, Math.PI-cueRotation);
-    // scene.add(cue);
+    }, undefined, function (error) {  
+        console.error(error);
+    });
+}
 
-}, undefined, function (error) {
-    
-    console.error(error);
-    
-});
-
-function drawLine(start, end) {
-    const material = new THREE.MeshBasicMaterial({color: 0xFFFFFF});
+function drawLine(start, end, color=0xFFFFFF) {
+    const material = new THREE.MeshBasicMaterial({color: color});
     const points = [];
     points.push(start);
     points.push(end);
@@ -135,10 +147,49 @@ function drawLine(start, end) {
     scene.add(line);
 }
 
+async function fetchLines() {
+    await fetchBalls();
+    loadCue();
+    fetch('lines.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(line => {
+                let x1 = 2*line.x1/1000-1.88, y1 = 2*line.y1/1000-0.91, x2 = 2*line.x2/1000-1.88, y2 = 2*line.y2/1000-0.91;
+                const start = new THREE.Vector3(x1, 1, y1);
+                const end = new THREE.Vector3(x2, 1, y2);
+                drawLine(start, end, line.color);
+                console.log(x1, balls[0].x);
+                if (Math.abs(x1 - balls[0].x) < 0.01 && Math.abs(y1 - balls[0].y) < 0.01) {
+                    const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.0525, 32, 32), new THREE.MeshBasicMaterial({color: line.color, opacity: 0.8, transparent: true}));
+                    sphere.position.set(x2, 1, y2);
+                    scene.add(sphere);
+                }
+            });
+        })
+        .catch(err => console.error("Fetch error:", err));
+}
+
+fetchLines();
+
+document.getElementById('home-view').addEventListener('click', () => {
+    camera.position.set(0, 4, 0);
+});
+document.getElementById('cue-view').addEventListener('click', () => {
+    camera.position.set(cueX, 1.2, cueY);
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'h') {
+        camera.position.set(0, 4, 0);
+    } else if (event.key === 'c') {
+        camera.position.set(cueX, 1.2, cueY);
+    }
+});
+
 let b = 0;
 
 function animate() {
-    //requestAnimationFrame(animate);
+    // requestAnimationFrame(animate);
     
     if (balls.length == 16 && b == 0) {
         b = 1;
